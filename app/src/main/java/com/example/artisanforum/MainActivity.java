@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 pd.dismiss();
 
-                                                Intent intent = new Intent(MainActivity.this, CustomerActivity.class);
+                                                Intent intent = new Intent(MainActivity.this, OwnerActivity.class);
                                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                 startActivity(intent);
                                                 finish();
