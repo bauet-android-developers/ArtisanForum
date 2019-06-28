@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String str_password = password.getText().toString();
                 String str_location = location.getText().toString();
 
-                if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_fullname) || TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password)|| TextUtils.isEmpty(str_phonenumber) || TextUtils.isEmpty(str_location){
+                if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_fullname) || TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password)|| TextUtils.isEmpty(str_phonenumber) || TextUtils.isEmpty(str_location)){
                     Toast.makeText(RegisterActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else if(str_password.length() < 6){
                     Toast.makeText(RegisterActivity.this, "Password must have 6 characters!", Toast.LENGTH_SHORT).show();
@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    public void register(final String username, final String fullname, final String email, String password,final String  phonenumber,String location){
+    public void register(final String username, final String fullname, final String email, String password,final String  phonenumber,final String location){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -117,4 +117,4 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }}
