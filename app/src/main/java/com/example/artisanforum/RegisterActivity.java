@@ -105,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
                                         pd.dismiss();
-                                        Intent intent = new Intent(RegisterActivity.this, DonorEditProfileActivity.class);
+                                        Intent intent = new Intent(RegisterActivity.this, CustomerActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                     }
