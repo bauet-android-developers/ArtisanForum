@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.CustomerActivity"
-    tools:showIn="@layout/activity_owner">
+    tools:context=".activities.OwnerActivity"
+    tools:showIn="@layout/activity_owner2">
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclecycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

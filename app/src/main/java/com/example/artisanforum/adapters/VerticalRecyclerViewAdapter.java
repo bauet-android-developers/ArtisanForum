@@ -25,12 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VerticalRecyclerViewAdapter extends
-        RecyclerView.Adapter<VerticalRecyclerViewAdapter.VerticalTextHolder> {
+public class VerticalRecyclerViewAdapter extends RecyclerView.Adapter<VerticalRecyclerViewAdapter.VerticalTextHolder> {
     private Context mContext;
     private List<Retrivingposts> mRetrivingTexts;
-    public RecyclerView newRecycler;
-    DatabaseReference dataRef;
+    private RecyclerView newRecycler;
     private ArrayList<String> images;
     private HorizontaRecyclerViewAdapter mAdapter;
 
@@ -63,8 +61,9 @@ public class VerticalRecyclerViewAdapter extends
                         Toast.LENGTH_SHORT).show();
             }
         });
-        String d = retrivingTextsCurrent.getTimestamp();
-        dataRef = FirebaseDatabase.getInstance().getReference().child("post");
+        String d = String.valueOf(retrivingTextsCurrent.getTimestamp());
+        DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference()
+                .child("images").child(d);
         dataRef.keepSynced(true);
         images = new ArrayList<>();
         newRecycler.setHasFixedSize(true);
@@ -76,17 +75,19 @@ public class VerticalRecyclerViewAdapter extends
                 try {
                     if (dataSnapshot.hasChildren()) {
                         images.clear();
+                        int x = 0;
                         Iterable<DataSnapshot> snapshots = dataSnapshot.getChildren();
                         for (DataSnapshot snapshot : snapshots) {
                             images.add(snapshot.getValue(String.class));
+                            x++;
                         }
+                        Toast.makeText(mContext, x, Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 mAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }

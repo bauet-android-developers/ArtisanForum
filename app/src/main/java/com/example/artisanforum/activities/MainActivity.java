@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         txt_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+//                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                startActivity(new Intent(MainActivity.this, OwnerActivity.class));
             }
         });
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 pd.dismiss();
 
-                                                Intent intent = new Intent(MainActivity.this, OwnerActivity.class);
+                                                Intent intent = new Intent(MainActivity.this, CustomerActivity.class);
                                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                                 startActivity(intent);
                                                 finish();
