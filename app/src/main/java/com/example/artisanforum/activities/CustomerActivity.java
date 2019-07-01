@@ -30,9 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    private List<RetrivingOwnerList> mRetrivingTexts;
-    OwnerListRecyclerViewAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +43,7 @@ public class CustomerActivity extends AppCompatActivity {
         tabpagerAdapter TabPagerAdapter = new tabpagerAdapter(getSupportFragmentManager());
         pager.setAdapter(TabPagerAdapter);
         tabLayout.setupWithViewPager(pager);
-        recyclerView = findViewById(R.id.recyclecycle);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,28 +53,7 @@ public class CustomerActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        recyclerView.setHasFixedSize(true);
-        mRetrivingTexts = new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        mDatabaseRef.keepSynced(true);
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mRetrivingTexts.clear();
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
-                    RetrivingOwnerList retrivingposts = dataSnapshot1.getValue(RetrivingOwnerList.class);
-                    mRetrivingTexts.add(retrivingposts);
-                }
-                mAdapter = new OwnerListRecyclerViewAdapter(getApplicationContext(), mRetrivingTexts);
-                recyclerView.setAdapter(mAdapter);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
