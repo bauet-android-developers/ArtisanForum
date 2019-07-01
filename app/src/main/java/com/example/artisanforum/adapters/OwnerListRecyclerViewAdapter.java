@@ -9,13 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.artisanforum.R;
 import com.example.artisanforum.models.RetrivingOwnerList;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -50,6 +49,16 @@ public class OwnerListRecyclerViewAdapter extends
                 mContext.startActivity(intent);
             }
         });
+        if (ownerList.getProimg() == "null") {
+            holder.proImg.setBackgroundResource(R.drawable.ic_man);
+
+        } else {
+            Picasso.with(this.mContext)
+                    .load(ownerList.getProimg())
+                    .centerCrop()
+                    .fit()
+                    .into(holder.proImg);
+        }
     }
 
     @Override

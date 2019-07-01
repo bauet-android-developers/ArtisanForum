@@ -4,14 +4,16 @@ public class RetrivingOwnerList {
     private String name;
     private String phone;
     private String type;
+    private String proimg;
 
     public RetrivingOwnerList() {
     }
 
-    public RetrivingOwnerList(String name, String phone, String type) {
+    public RetrivingOwnerList(String name, String phone, String type, String proimg) {
         this.name = name;
         this.phone = phone;
         this.type = type;
+        this.proimg = proimg;
     }
 
     public String getName() {
@@ -36,5 +38,13 @@ public class RetrivingOwnerList {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getProimg() {
+        return proimg;
+    }
+
+    public void setProimg(String proimg) {
+        this.proimg = proimg;
     }
 }

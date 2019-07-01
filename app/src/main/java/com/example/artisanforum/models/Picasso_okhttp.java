@@ -1,23 +1,17 @@
 package com.example.artisanforum.models;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.AlarmClock;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
 
-public class Picasso_okhttp extends Application implements Application.ActivityLifecycleCallbacks{
+public class Picasso_okhttp extends Application implements Application.ActivityLifecycleCallbacks {
     private Activity mCurrentActivity;
+
     @Override
     public void onCreate() {
         super.onCreate();
