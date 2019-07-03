@@ -1,89 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    android:gravity="center"
     tools:context=".activities.RegisterActivity">
 
 
-
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:hint="Username"
         android:id="@+id/username"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
+        android:layout_width="match_parent"
 
-    <EditText
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Username"
+        android:padding="10dp" />
+
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/division"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#D9E1F1"
+        android:hint="Division"
+        android:textColorHint="#0A440A" />
 
-        android:hint="Full name"
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#D9E1F1"
+        android:hint="District"
+        android:textColorHint="#0A440A"
+        android:visibility="gone" />
+
+    <EditText
         android:id="@+id/fullname"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:padding="10dp"/>
+        android:hint="Full name"
+        android:padding="10dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:hint="Phonenumber"
         android:id="@+id/phonenumber"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
+        android:layout_width="match_parent"
 
-    <EditText
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Phonenumber"
+        android:padding="10dp" />
+
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Location"
+        android:orientation="horizontal">
 
-        android:id="@+id/location"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
+        <RadioButton
+            android:id="@+id/radio_pirates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer" />
 
+        <RadioButton
+            android:id="@+id/radio_ninjas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Malik" />
+    </RadioGroup>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-
         android:id="@+id/email"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="15dp"
-        android:padding="10dp"/>
-
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:hint="Password"
-        android:id="@+id/password"
-        android:inputType="textPassword"
         android:layout_marginTop="15dp"
-        android:padding="10dp"/>
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp" />
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10dp" />
 
     <Button
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Register"
-        android:id="@+id/register"
-        android:textColor="#FFFFFF"
-        />
+        android:textColor="#FFFFFF" />
 
     <TextView
+        android:id="@+id/txt_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an sccount? Log in"
-        android:id="@+id/txt_login"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="Already have an sccount? Log in" />
 
 </LinearLayout>

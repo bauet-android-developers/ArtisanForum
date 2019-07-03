@@ -85,6 +85,8 @@ public class PopPost extends Activity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatabaseReference userposts = FirebaseDatabase.getInstance().getReference().child("Users").child("posts");
+                userposts.child(ref.getKey()).setValue(ref.getKey());
                 if (btn_.getVisibility() != View.VISIBLE) {
                     String x = editText.getText().toString();
                     String timeStamp = String.valueOf(TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()));
