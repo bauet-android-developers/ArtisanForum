@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "922079301919",
+    "firebase_url": "https://artisanforum-37156.firebaseio.com",
+    "project_id": "artisanforum-37156",
+    "storage_bucket": "artisanforum-37156.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922079301919:android:2efd3437c2313082",
+        "android_client_info": {
+          "package_name": "com.example.artisanforum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922079301919-vm89ff8ff88c1qkit97h4snd97is88h3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.artisanforum",
+            "certificate_hash": "0d4ac91ddcecc5854ce588032c32aa469946ab8c"
+          }
+        },
+        {
+          "client_id": "922079301919-hqlhcrp8eph6atph5b2k5s56jemhdetv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_M9CVeKa942rsOq72-KW5D9-azX59WMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922079301919-hqlhcrp8eph6atph5b2k5s56jemhdetv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
