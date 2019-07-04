@@ -94,6 +94,8 @@ public class PopPost extends Activity {
                     ref.child("descrip").setValue(x);
                     ref.child("timestamp").setValue(timeStamp);
                     dataRef.child(timeStamp).setValue("null");
+                    DatabaseReference userPosts  = FirebaseDatabase.getInstance().getReference();
+
                     finish();
                 } else {
                     progressDialog = new ProgressDialog(PopPost.this);
