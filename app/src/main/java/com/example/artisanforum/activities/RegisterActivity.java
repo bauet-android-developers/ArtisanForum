@@ -63,9 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         username = findViewById(R.id.username);
-        email = findViewById(R.id.email);
-        phonenumber = findViewById(R.id.phonenumber);
-        fullname = findViewById(R.id.fullname);
+        email = findViewById(R.id.email);;
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
         txt_login = findViewById(R.id.txt_login);
@@ -129,18 +127,18 @@ public class RegisterActivity extends AppCompatActivity {
 //                name = name_.getText().toString();
 //                phone = phone_.getText().toString();
                 String str_username = username.getText().toString();
-                String str_fullname = fullname.getText().toString();
-                String str_phonenumber = phonenumber.getText().toString();
+                String str_fullname = name_.getText().toString();
+                String str_phonenumber = phone_.getText().toString();
                 String str_email = email.getText().toString();
                 String str_password = password.getText().toString();
-                String str_location = location.getText().toString();
+//                String str_location = location.getText().toString();
 
-                if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_fullname) || TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password) || TextUtils.isEmpty(str_phonenumber) || TextUtils.isEmpty(str_location)) {
+                if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_fullname) || TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password) || TextUtils.isEmpty(str_phonenumber) || TextUtils.isEmpty(selecteddis)) {
                     Toast.makeText(RegisterActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else if (str_password.length() < 6) {
                     Toast.makeText(RegisterActivity.this, "Password must have 6 characters!", Toast.LENGTH_SHORT).show();
                 } else {
-                    register(str_username, str_fullname, str_email, str_password, str_phonenumber, str_location);
+                    register(str_username, str_fullname, str_email, str_password, str_phonenumber, selecteddis);
                 }
             }
         });
@@ -159,10 +157,11 @@ public class RegisterActivity extends AppCompatActivity {
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("id", userID);
                             map.put("username", username.toLowerCase());
-                            map.put("fullname", fullname);
+                            map.put("name", fullname);
                             map.put("email", email);
-                            map.put("phonenumber", phonenumber);
-                            map.put("location", location);
+                            map.put("phone", phonenumber);
+                            map.put("district", selecteddis);
+//                            map.put("location", location);
                             map.put("bio", "");
 
                             reference.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

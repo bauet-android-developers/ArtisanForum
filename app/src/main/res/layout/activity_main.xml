@@ -29,18 +29,20 @@
         android:padding="10dp" />
 
     <RadioGroup
+        android:id="@+id/intent_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radio_pirates"
+            android:id="@+id/customer_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Customer" />
 
         <RadioButton
-            android:id="@+id/radio_ninjas"
+            android:id="@+id/owner_radio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Malik" />

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
+import java.security.acl.Owner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_signup;
     boolean i = true;
     FirebaseAuth auth;
+    RadioGroup intentType;
+    RadioButton owner, customer, radioButton;
+    Intent intent;
 
 
     @Override
@@ -42,14 +46,34 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         txt_signup = findViewById(R.id.txt_signup);
+        intentType = findViewById(R.id.intent_type);
+        owner = findViewById(R.id.owner_radio);
+        customer = findViewById(R.id.customer_radio);
 //
         auth = FirebaseAuth.getInstance();
+        intentType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int radioId = group.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+                if (radioButton == owner) {
+                    Toast.makeText(MainActivity.this, "Owner", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, OwnerActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                } else if(radioButton == customer) {
+                    Toast.makeText(MainActivity.this, "Customer", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, CustomerActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
+            }
+        });
 //
         txt_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-//                startActivity(new Intent(MainActivity.this, CustomerActivity.class));
+//                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                startActivity(new Intent(MainActivity.this, CustomerActivity.class));
             }
         });
 
@@ -59,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 final ProgressDialog pd = new ProgressDialog(MainActivity.this);
                 pd.setMessage("Please wait...");
                 pd.show();
+
 //
                 String str_email = email.getText().toString();
                 String str_password = password.getText().toString();
@@ -79,9 +104,10 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onDataChange(DataSnapshot dataSnapshot) {
                                                 pd.dismiss();
-
-                                                Intent intent = new Intent(MainActivity.this, OwnerActivity.class);
-                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                if(intent == null){
+                                                    intent = new Intent(MainActivity.this, CustomerActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                }
                                                 startActivity(intent);
                                                 finish();
                                             }
